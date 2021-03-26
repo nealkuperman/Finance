@@ -1,0 +1,49 @@
+        def getproducts(ndice,targetsum,sides,rollctr,rolls,products,x,setctr) :
+        #print str(ndice)
+        #print str(targetsum)
+        #print str(sides)
+        #print str(rollctr)
+        #print rolls
+        #print products
+        #print x
+        #print setctr
+        import random
+
+        rand =  random.randrange(1,sides+1)
+        rolls.append(rand)
+
+
+        if rollctr == ndice:
+                #check sum
+                if sum(rolls) == targetsum:
+                        products.append(product(rolls))
+                #initialize ctrs
+                if x==setctr:
+                        print x
+                        print products
+                        return products
+                rollctr=0
+                rolls = []
+                x=x+1
+
+        rollctr=rollctr+1
+        getproducts(ndice,targetsum,sides,rollctr,rolls,products,x,setctr)
+
+def product(list):
+    p = 1
+    for i in list:
+        p *= i
+    return p
+
+def sum(list):
+    p = 1
+    for i in list:
+        p += i
+    return p
+
+products=[]
+rolls=[]
+ndice=8
+x=1
+max=100
+getproducts(ndice,24,6,1,rolls,products,x,max)
