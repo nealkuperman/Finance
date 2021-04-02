@@ -24,6 +24,22 @@
 
 """
 
+"""
+                TO DO LIST
+
+1) take in data that includes dictionary of stock (value) and ticker symbol (key), query start date, query end date, source, what do we want to graph (y axis)
+2) process all data (plot all data)
+    a) process one stock   # seperate plots for each stock
+        i) pull in the stock data from the source
+        ii) graph data 
+3) add test in if __name__ = '__main__':
+
+"""
+
+def plot_data(stocks, start_date, end_date, source, axis): 
+
+
+
 import sys
 sys.path.append(r'/Users/nealkuperman/Documents/GitHub/Finance/Finance/Lib')
 
@@ -75,7 +91,7 @@ Similar to calling Yahoo with “NFLX”to get NFLX prices
 
 """
 
-s
+
 class stock_query():
     ticker_symbol = ""
     data_source = ""
