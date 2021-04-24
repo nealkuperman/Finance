@@ -22,7 +22,7 @@ class StockHistory(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
 
-        back_button = create_ttkbutton(self, "Back", lambda: controller.show_frame(controller.previous_frame),
+        back_button = create_button(self, "Back", lambda: controller.show_frame(controller.previous_frame),
                                        self.next_row, controller.page_button_col)
 
         self.next_row = 0
@@ -41,8 +41,9 @@ class StockHistory(tk.Frame):
                                     self.next_row, controller.label_col, controller.entry_col, date_pattern=FOUR_DIGIT_YEAR_FORMAT)
 
         self.next_row += 1
-        self.display_field = LabeledOptionMenu(self, self.DISPLAY_FIELD_LABEL, self.next_row, tk.StringVar(), controller.label_col,
-                                               controller.display_field_names, controller.entry_col)
+        self.display_field = LabeledOptionMenu(self, self.DISPLAY_FIELD_LABEL, self.next_row, tk.StringVar(),
+                                               controller.label_col, controller.display_field_names,
+                                               controller.entry_col)
         self.next_row += 1
         self.data_source = LabeledOptionMenu(self, self.DATA_SOURCE_LABEL, self.next_row, tk.StringVar(), controller.label_col,
                                              controller.data_source_names, controller.entry_col)
@@ -55,7 +56,7 @@ class StockHistory(tk.Frame):
 
         # print(self.ticker_symbol.entry.get())
         self.next_row = 0
-        self.runbtn = create_ttkbutton(self, "Run", lambda: runbtn_clicked(self), 10, 4)
+        self.runbtn = create_button(self, "Run", lambda: runbtn_clicked(self), 10, 4)
 
 
 def runbtn_clicked(stock_page):

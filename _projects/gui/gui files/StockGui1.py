@@ -86,7 +86,7 @@ class tkinterApp(tk.Tk):
                 words[-1].append(c)
 
         return [''.join(word) for word in words]
-    '''
+   '''
 # first window frame Menu
 
 

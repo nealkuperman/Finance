@@ -13,5 +13,5 @@ class StockPortfolio(tk.Frame):
         tk.Frame.__init__(self, parent)
         self.controller = controller
         self.next_row += 1
-        back_button = create_ttkbutton(self, "Back", lambda: controller.show_frame(controller.previous_frame), self.next_row, controller.page_button_col)
+        back_button = create_button(self, "Back", lambda: controller.show_frame(controller.previous_frame), self.next_row, controller.page_button_col)
         self.next_row = 0
