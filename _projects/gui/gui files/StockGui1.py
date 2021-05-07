@@ -73,41 +73,26 @@ class tkinterApp(tk.Tk):
         frame = self.frames[frame_to_show]
         frame.tkraise()
         self.current_frame = frame_to_show
-        self.title(frame_to_show.PAGE_NAME)
-        # self.title(self.camel_case_split(frame_to_show.__name__))
-    '''
-    def camel_case_split(self, string):
-        words = [[string[0]]]
-
-        for c in string[1:]:
-            if words[-1][-1].islower() and c.isupper():
-                words.append(list(c))
-            else:
-                words[-1].append(c)
-
-        return [''.join(word) for word in words]
-   '''
-# first window frame Menu
+        self.title(frame_to_show.FRAME_NAME)
 
 
 class Menu(tk.Frame):
-    PAGE_NAME = "Menu"
+    FRAME_NAME = "Menu"
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
 
         # label of frame Layout 2
-        label = create_label(self, text="Menu", row=0, column=4)
-        label.configure(font=controller.LARGEFONT)
-        label.grid(padx=10, pady=10)
+        label = tk.Label(self, text="Menu", font=controller.LARGEFONT)
+        label.grid(row=0, column=4)
 
         stock_history_button = create_button(self, "Stock History", lambda: controller.show_frame(StockHistory),
-                                                row=1, column=1)
+                                             row=1, column=0)
         stock_history_button.grid(padx=10, pady=10)
 
         # button to show frame 2 with text layout2
         stock_portfolio_button = create_button(self, "Stock Portfolio",
-                                                  lambda: controller.show_frame(StockPortfolio), row=2, column=1)
+                                               lambda: controller.show_frame(StockPortfolio), row=1, column=5)
         stock_portfolio_button.grid(padx=10, pady=10)
 
         self.quitbtn = create_button(self, "Quit", self.quitbtn_clicked, 11, 4)

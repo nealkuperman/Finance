@@ -5,10 +5,10 @@ from label_ttk import *
 from mimic_file import *
 __all__ = ["StockHistory"]
 
+
 # second window frame StockHistoryPage
 class StockHistory(tk.Frame):
-    # ticker_symbol = None
-    PAGE_NAME = "Stock History"
+    FRAME_NAME = "Stock History"
     next_row = 0
     end_date = None
     start_date = None
@@ -23,7 +23,7 @@ class StockHistory(tk.Frame):
         tk.Frame.__init__(self, parent)
 
         back_button = create_button(self, "Back", lambda: controller.show_frame(controller.previous_frame),
-                                       self.next_row, controller.page_button_col)
+                                    self.next_row, controller.page_button_col)
 
         self.next_row = 0
 
@@ -32,13 +32,15 @@ class StockHistory(tk.Frame):
         start_date_mindate = dt.date(year=1944, month=6, day=11)
         start_date_maxdate = today
         self.start_date = LabeledDateEntry(self, start_date_mindate, start_date_maxdate, start_date_mindate,
-                                           self.START_DATE_LABEL, self.next_row, controller.label_col, controller.entry_col, date_pattern=FOUR_DIGIT_YEAR_FORMAT)
+                                           self.START_DATE_LABEL, self.next_row, controller.label_col,
+                                           controller.entry_col, date_pattern=FOUR_DIGIT_YEAR_FORMAT)
 
         self.next_row += 1
         end_date_mindate = dt.date(year=1944, month=6, day=11)
         end_date_maxdate = today
         self.end_date = LabeledDateEntry(self, end_date_mindate, end_date_maxdate, today, self.END_DATE_LABEL,
-                                    self.next_row, controller.label_col, controller.entry_col, date_pattern=FOUR_DIGIT_YEAR_FORMAT)
+                                         self.next_row, controller.label_col, controller.entry_col,
+                                         date_pattern=FOUR_DIGIT_YEAR_FORMAT)
 
         self.next_row += 1
         self.display_field = LabeledOptionMenu(self, self.DISPLAY_FIELD_LABEL, self.next_row, tk.StringVar(),
@@ -54,9 +56,8 @@ class StockHistory(tk.Frame):
         self.ticker_symbol = LabeledEntry(self, self.TICKER_SYMBOL_LABEL, controller.label_col, "",
                                           controller.entry_col, 10, self.next_row, True)
 
-        # print(self.ticker_symbol.entry.get())
         self.next_row = 0
-        self.runbtn = create_button(self, "Run", lambda: runbtn_clicked(self), 10, 4)
+        self.runbtn = create_button(self, "Run", lambda: runbtn_clicked(self), row=10, column=4)
 
 
 def runbtn_clicked(stock_page):
