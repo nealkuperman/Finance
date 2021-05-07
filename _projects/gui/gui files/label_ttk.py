@@ -175,12 +175,13 @@ if __name__ == "__main__":
     vals = ["One", "Two", "Three"]
     combobox = LabeledComboBox(root, "Combo Box", next_row, lbl_col, vals, entry_col)
     next_row += 1
-    option_menu = LabeledOptionMenu(root, "Option Menu", next_row, StringVar(), lbl_col, vals, entry_col)
+    option_men = LabeledOptionMenu(root, "Option Menu", next_row, StringVar(), lbl_col, vals, entry_col)
     next_row += 1
     clicked = BooleanVar()
+
     def check_box_clicked():
-        print("passed")
-    check_box = create_checkbutton(root, "Click Me", clicked, command=None, onvalue=True, offvalue=False, row=next_row, column=0)
+        print("clicked")
+    check_box = create_checkbutton(root, "Click Me", clicked, command=check_box_clicked, onvalue=True, offvalue=False, row=next_row, column=0)
 
 
     #afgsd = LabeledEntry()
